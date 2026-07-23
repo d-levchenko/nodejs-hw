@@ -1,10 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
+import { connectMongoDB } from './db/connectMongoDB';
 import 'dotenv/config';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
+
+await connectMongoDB();
 
 app.use(express.json());
 app.use(cors());
