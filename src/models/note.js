@@ -26,4 +26,6 @@ const noteSchema = new Schema(
   },
 );
 
+noteSchema.index({ tag: 'text' });
+
 export const Note = model('Note', noteSchema);
