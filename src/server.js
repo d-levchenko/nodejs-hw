@@ -23,16 +23,13 @@ app.use(logger);
 app.use(notesRoutes);
 
 // 404
-app.use((req, res) => {
-  notFoundHandler(req, res);
-});
+app.use(notFoundHandler);
 
+// celebrate
 app.use(errors());
 
 // 500
-app.use((err, req, res, next) => {
-  errorHandler(err, req, res, next);
-});
+app.use(errorHandler);
 
 await connectMongoDB();
 
