@@ -9,10 +9,6 @@ import {
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Hello world!' });
-});
-
 router.get('/notes', getAllNotes);
 router.get('/notes/:noteId', getNoteById);
 router.post('/notes', createNote);

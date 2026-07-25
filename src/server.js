@@ -19,11 +19,6 @@ app.use(express.json());
 app.use(cors());
 app.use(logger);
 
-app.use((req, res, next) => {
-  console.log(`Time: ${new Date().toLocaleString()}`);
-  next();
-});
-
 app.use(notesRoutes);
 
 // 404
