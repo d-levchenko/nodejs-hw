@@ -3,19 +3,19 @@ import { Router } from 'express';
 import {
   loginUserSchema,
   registerUserSchema,
-} from '../validations/authValidation';
+} from '../validations/authValidation.js';
 import {
   loginUser,
   logoutUser,
   refreshUserSession,
   registerUser,
-} from '../controllers/authController';
+} from '../controllers/authController.js';
 
-const router = Router();
+const authRouter = Router();
 
-router.post('/auth/register', celebrate(registerUserSchema), registerUser);
-router.post('/auth/login', celebrate(loginUserSchema), loginUser);
-router.post('/auth/refresh', refreshUserSession);
-router.post('/auth/logout', logoutUser);
+authRouter.post('/auth/register', celebrate(registerUserSchema), registerUser);
+authRouter.post('/auth/login', celebrate(loginUserSchema), loginUser);
+authRouter.post('/auth/refresh', refreshUserSession);
+authRouter.post('/auth/logout', logoutUser);
 
-export default router;
+export default authRouter;
