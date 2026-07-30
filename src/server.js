@@ -10,6 +10,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 
 import notesRoutes from './routes/notesRoutes.js';
+import cookieParser from 'cookie-parser';
 
 dns.setServers(['1.1.1.1', '8.8.8.8']);
 
@@ -19,6 +20,7 @@ const PORT = process.env.PORT ?? 3000;
 app.use(express.json());
 app.use(cors());
 app.use(logger);
+app.use(cookieParser());
 
 app.use(notesRoutes);
 
