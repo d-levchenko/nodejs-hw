@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { authenticate } from '../middleware/authenticate.js';
-import { updateUserAvatar } from '../controllers/userControllers.js';
+import { updateUserAvatar } from '../controllers/userController.js';
 import { upload } from '../middleware/multer.js';
 
 const userRouter = Router();
