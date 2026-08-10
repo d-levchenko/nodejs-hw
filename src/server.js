@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import dns from 'node:dns';
+import { errors } from 'celebrate';
 
 import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
@@ -22,14 +23,13 @@ app.use(logger);
 app.use(notesRoutes);
 
 // 404
-app.use((req, res) => {
-  notFoundHandler(req, res);
-});
+app.use(notFoundHandler);
+
+// celebrate
+app.use(errors());
 
 // 500
-app.use((err, req, res, next) => {
-  errorHandler(err, req, res, next);
-});
+app.use(errorHandler);
 
 await connectMongoDB();
 
